@@ -1,0 +1,14 @@
+{
+    "github_user" : "selfscrum",
+    "github_repo" : "minetest_server",
+    "tfc_organization" :"selfscrum",
+    "workspace" : "minetest_server",
+    "env_name" : "minetest", 
+    "env_stage" : "dev",
+    "location" : "nbg1",
+    "system_function" : "APPLICATION",
+    "server_image" :"ubuntu-18.04",
+    "server_type" :"cx11",
+    "keyname" :"tfh_key",
+    "network_zone" :"eu-central"
+}
