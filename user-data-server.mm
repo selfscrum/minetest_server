@@ -49,13 +49,15 @@ Content-Disposition: attachment; filename="userdata.txt"
 
 useradd -m minetest
 usermod -L minetest
-apt install docker.io
+apt -y update
+apt -y install docker.io
 ufw allow 30000/tcp
 ufw reload
-mkdir /home/minetest/data
-chown minetest:minetest /home/minetest/data
-mkdir /home/minetest/conf
-chown minetest:minetest /home/minetest/conf
-docker run -p 30000:30000 -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:latest
-
+mkdir -p /home/minetest/data
+chown 1000:1000 /home/minetest/data
+mkdir -p /home/minetest/conf
+chown 1000:1000 /home/minetest/conf
+touch /home/minetest/conf/minetest.conf
+chown 1000:1000 /home/minetest/conf/minetest.conf
+docker run -p 30000:30000/udp -e PGID=1000 -e PUID=1000  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:latest
 --//
