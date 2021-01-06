@@ -47,6 +47,15 @@ Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="userdata.txt"
 #!/bin/bash
 
-# install here
+useradd -m minetest
+usermod -L minetest
+apt install docker.io
+ufw allow 30000/tcp
+ufw reload
+mkdir /home/minetest/data
+chown minetest:minetest /home/minetest/data
+mkdir /home/minetest/conf
+chown minetest:minetest /home/minetest/conf
+docker run -p 30000:30000 -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:latest
 
 --//

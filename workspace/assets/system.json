@@ -7,7 +7,7 @@
     "env_stage" : "dev",
     "location" : "nbg1",
     "system_function" : "APPLICATION",
-    "server_image" :"ubuntu-18.04",
+    "server_image" :"ubuntu-20.04",
     "server_type" :"cx11",
     "keyname" :"tfh_key",
     "network_zone" :"eu-central"

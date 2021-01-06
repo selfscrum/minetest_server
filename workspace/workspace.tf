@@ -14,7 +14,7 @@ resource "tfe_workspace" "minetest_server" {
 resource "tfe_variable" "mt_access_token" {
     key          = "access_token"
     value        = ""
-    category     = "env"
+    category     = "terraform"
     workspace_id = tfe_workspace.minetest_server.id
     description  = "Workspace that created the Minetest Server"
     sensitive    = true
