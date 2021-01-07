@@ -87,6 +87,8 @@ rm master.zip
 mv unified_inventory-master /home/minetest/data/.minetest/mods/unified_inventory
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/unified_inventory
 echo "load_mod_unified_inventory = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+# restart server
+docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ $(docker image ls -q)
 
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
@@ -95,7 +97,6 @@ rm master.zip
 mv mesecons-master /home/minetest/data/.minetest/mods/mesecons
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/mesecons
 echo "load_mod_mesecons = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
-
 # restart server
 docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ $(docker image ls -q)
 --//
