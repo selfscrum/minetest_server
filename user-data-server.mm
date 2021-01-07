@@ -77,6 +77,8 @@ chown -R 30000:30000 /home/minetest/data
 
 # create server
 docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:025035db5c87e9eaa9f83859f860539fc4fb4dc0 &
+sleep 5
+docker stop $(docker ps -q)
 
 # install inventory mod
 wget https://github.com/minetest-mods/unified_inventory/archive/master.zip
