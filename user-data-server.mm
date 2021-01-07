@@ -55,18 +55,18 @@ ufw allow 30000/udp
 ufw allow 30000/tcp
 ufw reload
 mkdir -p /home/minetest/data
-chown 1000:1000 /home/minetest/data
+chown 30000:30000 /home/minetest/data
 mkdir -p /home/minetest/conf
-chown 1000:1000 /home/minetest/conf
+chown 30000:30000 /home/minetest/conf
 touch /home/minetest/conf/minetest.conf
 
-echo "active_block_range = 10" > /home/minetest/conf/minetest.conf
+echo "active_block_range = 3" > /home/minetest/conf/minetest.conf
 echo "max_block_send_distance = 30" >> /home/minetest/conf/minetest.conf
 echo "max_block_generate_distance = 30" >> /home/minetest/conf/minetest.conf
 echo "client_unload_unused_data_timeout = 300" >> /home/minetest/conf/minetest.conf
 echo "client_mapblock_limit = 2000" >> /home/minetest/conf/minetest.conf
 echo "time_speed = 0" >> /home/minetest/conf/minetest.conf
 
-chown 1000:1000 /home/minetest/conf/minetest.conf
-docker run -p "30000:30000/udp" -e "PGID=1000" -e "PUID=1000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:latest
+chown 30000:30000 /home/minetest/conf/minetest.conf
+docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:latest
 --//
