@@ -68,5 +68,5 @@ echo "client_mapblock_limit = 2000" >> /home/minetest/conf/minetest.conf
 echo "time_speed = 0" >> /home/minetest/conf/minetest.conf
 
 chown 30000:30000 /home/minetest/conf/minetest.conf
-docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:latest
+docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:025035db5c87e9eaa9f83859f860539fc4fb4dc0
 --//
