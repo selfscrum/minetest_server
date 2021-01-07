@@ -50,6 +50,7 @@ Content-Disposition: attachment; filename="userdata.txt"
 # prepare host for container
 apt -y update
 apt -y install docker.io
+apt -y install unzip
 useradd -m minetest
 usermod -L minetest
 
@@ -74,13 +75,19 @@ chown 30000:30000 /home/minetest/conf/minetest.conf
 mkdir -p /home/minetest/data/.minetest/mods
 chown -R 30000:30000 /home/minetest/data
 
+# create server
+docker create -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:025035db5c87e9eaa9f83859f860539fc4fb4dc0
+
 # get mods
+
 cd /tmp
 wget https://github.com/minetest-mods/unified_inventory/archive/master.zip
 unzip master.zip
 rm master.zip
 mv unified_inventory-master /home/minetest/data/.minetest/mods/unified_inventory
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/unified_inventory
+echo "load_mod_unified_inventory = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
 # run server
-docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:025035db5c87e9eaa9f83859f860539fc4fb4dc0
+docker run $(docker ps -q)
 --//
