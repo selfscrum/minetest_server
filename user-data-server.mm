@@ -96,6 +96,38 @@ rm master.zip
 mv mesecons-master /home/minetest/data/.minetest/mods/mesecons
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/mesecons
 echo "load_mod_mesecons = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_walllever = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_torch = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_switch = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_receiver = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_random = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_solarpanel = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_powerplant = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_pistons = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_noteblock = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_mvps = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_movestones = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_materials = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_lightstone = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_microcontroller = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_insulated = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_pressureplates = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_stickyblocks = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_delayer = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_wires = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_detector = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_hydroturbine = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_luacontroller = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_alias = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_lamp = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_blinkyplant = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_commandblock = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_button = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_doors = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_extrawires = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_fpga = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_mesecons_gates = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
 
 # install moreblocks mod
 wget https://github.com/minetest-mods/moreblocks/archive/master.zip
