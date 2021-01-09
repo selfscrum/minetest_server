@@ -69,13 +69,14 @@ echo "max_block_generate_distance = 30" >> /home/minetest/conf/minetest.conf
 echo "client_unload_unused_data_timeout = 300" >> /home/minetest/conf/minetest.conf
 echo "client_mapblock_limit = 2000" >> /home/minetest/conf/minetest.conf
 echo "time_speed = 0" >> /home/minetest/conf/minetest.conf
+echo "creative_mode = true" >> /home/minetest/conf/minetest.conf
 chown 30000:30000 /home/minetest/conf/minetest.conf
 
 # create host dir for worlds, mods etc.
 mkdir -p /home/minetest/data/.minetest/mods
 chown -R 30000:30000 /home/minetest/data
 
-# create server
+# create server to make sure we have all the right directories
 docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ registry.gitlab.com/minetest/minetest/server:025035db5c87e9eaa9f83859f860539fc4fb4dc0 &
 sleep 5
 docker stop $(docker ps -q)
@@ -95,6 +96,15 @@ rm master.zip
 mv mesecons-master /home/minetest/data/.minetest/mods/mesecons
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/mesecons
 echo "load_mod_mesecons = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
+# install moreblocks mod
+wget https://github.com/minetest-mods/moreblocks/archive/master.zip
+unzip master.zip
+rm master.zip
+mv moreblocks-master /home/minetest/data/.minetest/mods/moreblocks
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/moreblocks
+echo "load_mod_moreblocks = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
 # restart server
 docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ $(docker image ls -q)
 --//
