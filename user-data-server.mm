@@ -98,6 +98,14 @@ mv books-master /home/minetest/data/.minetest/mods/books
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/books
 echo "load_mod_books = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
+# install display_modpack mod
+wget https://github.com/pyrollo/display_modpack/archive/master.zip
+unzip master.zip
+rm master.zip
+mv display_modpack-master /home/minetest/data/.minetest/mods/display_modpack
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/display_modpack
+echo "load_mod_display_modpack = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
 unzip master.zip
