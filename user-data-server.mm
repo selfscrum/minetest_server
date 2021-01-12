@@ -70,6 +70,7 @@ echo "client_unload_unused_data_timeout = 300" >> /home/minetest/conf/minetest.c
 echo "client_mapblock_limit = 2000" >> /home/minetest/conf/minetest.conf
 echo "time_speed = 0" >> /home/minetest/conf/minetest.conf
 echo "creative_mode = true" >> /home/minetest/conf/minetest.conf
+echo "name = mtadmin" >> /home/minetest/conf/minetest.conf
 chown 30000:30000 /home/minetest/conf/minetest.conf
 
 # create host dir for worlds, mods etc.
@@ -88,6 +89,14 @@ rm master.zip
 mv unified_inventory-master /home/minetest/data/.minetest/mods/unified_inventory
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/unified_inventory
 echo "load_mod_unified_inventory = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
+# install books mod
+wget https://github.com/everamzah/books/archive/master.zip
+unzip master.zip
+rm master.zip
+mv books-master /home/minetest/data/.minetest/mods/books
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/books
+echo "load_mod_books = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
@@ -137,6 +146,17 @@ mv moreblocks-master /home/minetest/data/.minetest/mods/moreblocks
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/moreblocks
 echo "load_mod_moreblocks = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
+# install skinsdb mod
+wget https://github.com/minetest-mods/skinsdb/archive/master.zip
+unzip master.zip
+rm master.zip
+mv skinsdb-master /home/minetest/data/.minetest/mods/skinsdb
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/skinsdb
+echo "load_mod_skinsdb = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "secure.trusted_mods = skinsdb" >> /home/minetest/conf/minetest.conf
+
 # restart server
-docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ $(docker image ls -q)
+docker run -p "30000:30000/udp" -e "PGID=30000" -e "PUID=30000"  -v /home/minetest/data/:/var/lib/minetest/ -v /home/minetest/conf:/etc/minetest/ $(docker image ls -q) &
+sleep 5
+docker restart $(docker ps -q)
 --//
