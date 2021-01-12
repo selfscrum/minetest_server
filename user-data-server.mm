@@ -104,7 +104,15 @@ unzip master.zip
 rm master.zip
 mv display_modpack-master /home/minetest/data/.minetest/mods/display_modpack
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/display_modpack
-echo "load_mod_display_modpack = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_signs_road = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_signs_api = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_steles = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_font_metro = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_ontime_clocks = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_signs = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_boards = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_display_api = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_font_api = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
