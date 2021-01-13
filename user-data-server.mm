@@ -116,12 +116,20 @@ echo "load_mod_display_api = true" >> /home/minetest/data/.minetest/worlds/world
 echo "load_mod_font_api = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
 # install maptools mod
-wget https://github.com/Calinou/maptools/archive/master.zip
+# wget https://github.com/Calinou/maptools/archive/master.zip
+# unzip master.zip
+# rm master.zip
+# mv maptools-master /home/minetest/data/.minetest/mods/maptools
+# chown -R 30000:30000 /home/minetest/data/.minetest/mods/maptools
+# echo "load_mod_maptools = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
+# install ts_furniture mod
+wget https://github.com/minetest-mods/ts_furniture/archive/master.zip
 unzip master.zip
 rm master.zip
-mv maptools-master /home/minetest/data/.minetest/mods/maptools
-chown -R 30000:30000 /home/minetest/data/.minetest/mods/maptools
-echo "load_mod_maptools = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+mv ts_furniture-master /home/minetest/data/.minetest/mods/ts_furniture
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/ts_furniture
+echo "load_mod_ts_furniture = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
