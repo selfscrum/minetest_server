@@ -137,7 +137,11 @@ unzip master.zip
 rm master.zip
 mv Minetest-WorldEdit-master /home/minetest/data/.minetest/mods/Minetest-WorldEdit
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/Minetest-WorldEdit
-echo "load_mod_Minetest-WorldEdit = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_worldedit_shortcommands = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_worldedit_commands = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_worldedit_brush = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_worldedit = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+echo "load_mod_worldedit_gui = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
