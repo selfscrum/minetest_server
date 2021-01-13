@@ -45,3 +45,26 @@ module "minestest_server" {
                         }
                       )
 }
+
+
+module "minestest_server2" {
+  source = "./modules/minetest_server"
+  cluster_name      = format("%s-%s-server2",var.env_stage, var.env_name)
+  image             = var.server_image
+  server_type       = var.server_type
+  location          = var.location
+  labels            = {
+                      "Name"   = var.env_name
+                      "Stage"  = var.env_stage
+  }
+  ssh_key           = var.keyname
+  user_data         = templatefile (
+# ---------------------------------------------------------------------------------------------------------------------
+# THE MULTIPART/MIXED USER DATA SCRIPT THAT WILL RUN ON THE SERVER INSTANCE WHEN IT'S BOOTING
+# ---------------------------------------------------------------------------------------------------------------------
+                      "${path.module}/user-data-server.mm",
+                        {
+                        hcloud_token             = var.access_token
+                        }
+                      )
+}
