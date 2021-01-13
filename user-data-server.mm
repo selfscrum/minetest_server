@@ -131,6 +131,14 @@ mv ts_furniture-master /home/minetest/data/.minetest/mods/ts_furniture
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/ts_furniture
 echo "load_mod_ts_furniture = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
+# install Minetest-WorldEdit mod
+wget https://github.com/Uberi/Minetest-WorldEdit/archive/master.zip
+unzip master.zip
+rm master.zip
+mv Minetest-WorldEdit-master /home/minetest/data/.minetest/mods/Minetest-WorldEdit
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/Minetest-WorldEdit
+echo "load_mod_Minetest-WorldEdit = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
 # install mesecons mod
 wget https://github.com/minetest-mods/mesecons/archive/master.zip
 unzip master.zip
