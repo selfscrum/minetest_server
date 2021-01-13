@@ -90,6 +90,14 @@ mv unified_inventory-master /home/minetest/data/.minetest/mods/unified_inventory
 chown -R 30000:30000 /home/minetest/data/.minetest/mods/unified_inventory
 echo "load_mod_unified_inventory = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
 
+# install areas mod
+wget https://github.com/minetest-mods/areas/archive/master.zip
+unzip master.zip
+rm master.zip
+mv areas-master /home/minetest/data/.minetest/mods/areas
+chown -R 30000:30000 /home/minetest/data/.minetest/mods/areas
+echo "load_mod_areas = true" >> /home/minetest/data/.minetest/worlds/world/world.mt
+
 # install books mod
 wget https://github.com/everamzah/books/archive/master.zip
 unzip master.zip
