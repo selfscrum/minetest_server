@@ -2,13 +2,13 @@
     "github_user" : "selfscrum",
     "github_repo" : "minetest_server",
     "tfc_organization" :"selfscrum",
-    "workspace" : "minetest_server",
-    "env_name" : "minetest", 
+    "workspace" : "minetest_server_creative",
+    "env_name" : "minetest_creative", 
     "env_stage" : "dev",
     "location" : "nbg1",
     "system_function" : "APPLICATION",
     "server_image" :"ubuntu-20.04",
-    "server_type" :"cx11",
+    "server_type" :"cx41",
     "keyname" :"tfh_key",
     "network_zone" :"eu-central"
 }
